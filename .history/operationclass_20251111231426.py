@@ -1,5 +1,4 @@
 import numpy as np
-import matplotlib.pyplot as plt
 
 class IntArray:
   def __init__(self, int_array):
@@ -18,13 +17,3 @@ class IntArray:
 
 
     print(f"People made {self.int_array} and these are their salaries: {salaries}")
-
-  def show_data(self):
-    x = np.arange(len(self.int_array))
-    plt.plot(x, self.int_array, marker='o')
-    plt.title
-    plt.xlabel('rank of employee')
-    plt.ylabel('products/month')
-    plt.xticks(x)
-    plt.grid()
-    plt.show

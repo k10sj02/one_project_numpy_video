@@ -38,12 +38,12 @@ def min_productivity(data_frame):
     if result > num_of_products:
       num_of_products = result
       worst_company = i + 1
-    print(f"The worst company is the {worst_company}. company with {num_of_products}")
+    print(f"The best company is the {best_company}. company with {num_of_products}")
   
 def mean_products(data_frame):
   for i in range(len(data_frame)):
-    average = np.mean(data_frame[i])
-    print(f"On average, one employee from {i}. company produced {average} products")
+    average = np.mean(data_frame)
+    print(f"On average, one employee from {i + 1}. company produced {average} products")
 
   """
   for element in np.nditer(data_frame):

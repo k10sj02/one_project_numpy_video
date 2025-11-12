@@ -1,8 +1,7 @@
 import numpy as np
-import matplotlib.pyplot as plt
 
 class IntArray:
-  def __init__(self, int_array):
+  def __init(self, int_array):
     if not isinstance(int_array, np.ndarray) or int_array.dtype != int: 
       raise ValueError("Input must be a NUMPY array of integers")
     
@@ -18,13 +17,3 @@ class IntArray:
 
 
     print(f"People made {self.int_array} and these are their salaries: {salaries}")
-
-  def show_data(self):
-    x = np.arange(len(self.int_array))
-    plt.plot(x, self.int_array, marker='o')
-    plt.title
-    plt.xlabel('rank of employee')
-    plt.ylabel('products/month')
-    plt.xticks(x)
-    plt.grid()
-    plt.show

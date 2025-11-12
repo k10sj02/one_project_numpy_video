@@ -43,7 +43,7 @@ def min_productivity(data_frame):
 def mean_products(data_frame):
   for i in range(len(data_frame)):
     average = np.mean(data_frame[i])
-    print(f"On average, one employee from {i}. company produced {average} products")
+    print(f"On average, one employee from {i + 1}. company produced {average} products")
 
   """
   for element in np.nditer(data_frame):

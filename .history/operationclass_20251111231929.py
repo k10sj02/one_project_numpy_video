@@ -24,7 +24,7 @@ class IntArray:
     plt.plot(x, self.int_array, marker='o')
     plt.title
     plt.xlabel('rank of employee')
-    plt.ylabel('products/month')
+    plt.yabel('products/month')
     plt.xticks(x)
     plt.grid()
     plt.show

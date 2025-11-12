@@ -1,23 +1,20 @@
 import numpy as np
 from operationclass import IntArray
 
-file_path = 'company.txt'
-
 def productivity_of_company(order, data_frame):
-  # this is without the numpy function sum()
   """
-  num_of_products = 0
+  num_products = 0
   for element in data_frame[order]:
-    num_of_products += element
+    num_products += element
   
-  return num_of_products
+  return num_products
   """
-  return np.sum(data_frame[order])
+  return np.sum()
 
 def max_productivity(data_frame):
   i = 0 
   best_company = 1 + 1
-  num_of_products = 0
+  num_products = 0
 
   for i in range(len(data_frame)):
     result = productivity_of_company(i, data_frame)
@@ -28,22 +25,39 @@ def max_productivity(data_frame):
   print(f"The best company is the {best_company}. company with {num_of_products}")
 
 
-def min_productivity(data_frame):
-  i = 0
-  worst_company = i + 1
-  num_of_products = productivity_of_company(0, data_frame)
+  def min_productivity(data_frame):
+    i = 0
+    worst_company = i + 1
+    num_of_products = productivity_of_company(0, data_frame)
 
-  for i in range(len(data_frame)):
-    result = productivity_of_company(i, data_frame)
-    if result > num_of_products:
-      num_of_products = result
-      worst_company = i + 1
-    print(f"The worst company is the {worst_company}. company with {num_of_products}")
+    for i in range(len(data_frame)):
+      result = productivity_of_company(i, data_frame)
+      if result > num_of_products:
+        num_of_products = result
+        worst_company = i + 1
+     print(f"The best company is the {best_company}. company with {num_of_products}")
+
+def file_handling():
+  with open('company.txt', 'r') as file:
+    lines = []
+
+    for line in file:
+      values = line.strip().split(',')
+      int_values = [int(val) for val in values]
+      lines.append(int_values)
+    
+    data_frame = np.array([np.array(row) for row in lines], dtype='object')
+    
+    for row in data_frame:
+      for i in row:
+        print(type(i))
+    
+    return data_frame
   
 def mean_products(data_frame):
   for i in range(len(data_frame)):
-    average = np.mean(data_frame[i])
-    print(f"On average, one employee from {i}. company produced {average} products")
+    average = np.mean(data_frame)
+    print(f"On average, one employee from {i + 1}. company produced {average} products")
 
   """
   for element in np.nditer(data_frame):
@@ -64,23 +78,6 @@ def mean_products(data_frame):
   total_mean = sum_products / num_employee
 
   print(f"Total mean of entire monopoly is {total_mean}")
-
-def file_handling():
-  with open('company.txt', 'r') as file:
-    lines = []
-
-    for line in file:
-      values = line.strip().split(',')
-      int_values = [int(val) for val in values]
-      lines.append(int_values)
-    
-    data_frame = np.array([np.array(row) for row in lines], dtype='object')
-    
-    for row in data_frame:
-      for i in row:
-        print(type(i))
-    
-    return data_frame
 
 def main():
   data_frame = file_handling()
