@@ -95,4 +95,6 @@ def main():
   min_productivity(data_frame)
   mean_products(data_frame)
 
+plot_productivity(data_frame)
+
 main()
